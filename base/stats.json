@@ -1,0 +1,26 @@
+{
+  "total_prompt_tokens": 6692614,
+  "total_completion_tokens": 165966,
+  "total_cached_tokens": 6191104,
+  "total_requests": 119,
+  "total_prefill_duration": 2532.0572224159987,
+  "total_generation_duration": 5879.585554746009,
+  "per_model": {
+    "Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-4bit": {
+      "prompt_tokens": 40844,
+      "completion_tokens": 13072,
+      "cached_tokens": 20480,
+      "requests": 9,
+      "prefill_duration": 239.57975154199812,
+      "generation_duration": 723.5403438749781
+    },
+    "Qwen3.6-35B-A3B-OptiQ-4bit": {
+      "prompt_tokens": 6651770,
+      "completion_tokens": 152894,
+      "cached_tokens": 6170624,
+      "requests": 110,
+      "prefill_duration": 2292.4774708740006,
+      "generation_duration": 5156.045210871031
+    }
+  }
+}
