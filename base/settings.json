@@ -15,7 +15,7 @@
     ],
     "sse_keepalive_mode": "chunk",
     "auto_start_on_launch": true,
-    "burst_decode_mode": "balanced",
+    "burst_decode_mode": "aggressive",
     "preserve_mid_system_cache": true
   },
   "model": {
@@ -31,26 +31,26 @@
     "memory_guard_custom_ceiling_gb": 0.0,
     "soft_threshold": 0.85,
     "hard_threshold": 0.95,
-    "prefill_safe_zone_ratio": 0.8,
+    "prefill_safe_zone_ratio": 0.9,
     "prefill_min_chunk_tokens": 32
   },
   "scheduler": {
-    "max_concurrent_requests": 8,
+    "max_concurrent_requests": 12,
     "embedding_batch_size": 32,
-    "chunked_prefill": false
+    "chunked_prefill": true
   },
   "cache": {
     "enabled": true,
     "hot_cache_only": false,
     "ssd_cache_dir": "/Volumes/SSDSCX_DATA/LLM_SSD/models/omlx/cache",
     "ssd_cache_max_size": "92GB",
-    "hot_cache_max_size": "0",
+    "hot_cache_max_size": "12GB",
     "initial_cache_blocks": 256
   },
   "auth": {
     "api_key": "${OMLX_API_KEY}",
     "secret_key": "${OMLX_SECRET_KEY}",
-    "skip_api_key_verification": false,
+    "skip_api_key_verification": true,
     "sub_keys": []
   },
   "mcp": {
@@ -70,7 +70,7 @@
     "ca_bundle": ""
   },
   "sampling": {
-    "max_context_window": 32768,
+    "max_context_window": 131072,
     "max_context_window_policy": null,
     "max_tokens": 32768,
     "temperature": 1.0,
