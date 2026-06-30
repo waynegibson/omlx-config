@@ -7,5 +7,6 @@
 
 # oMLX
 /base/logs
+/base/stats
 /models
 /cache

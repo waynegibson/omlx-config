@@ -1,10 +1,10 @@
 {
-  "total_prompt_tokens": 3241417,
-  "total_completion_tokens": 40766,
-  "total_cached_tokens": 2940928,
-  "total_requests": 145,
-  "total_prefill_duration": 1081.2513149632577,
-  "total_generation_duration": 1506.869321243983,
+  "total_prompt_tokens": 10752049,
+  "total_completion_tokens": 205315,
+  "total_cached_tokens": 9932800,
+  "total_requests": 276,
+  "total_prefill_duration": 3524.932894921003,
+  "total_generation_duration": 7025.192575240188,
   "per_model": {
     "Qwen3.5-27B-Claude-4.6-Opus-Distilled-MLX-4bit": {
       "prompt_tokens": 40844,
@@ -14,13 +14,21 @@
       "prefill_duration": 239.57975154199812,
       "generation_duration": 723.5403438749781
     },
+    "Qwen3.6-35B-A3B-OptiQ-4bit": {
+      "prompt_tokens": 6651770,
+      "completion_tokens": 152894,
+      "cached_tokens": 6170624,
+      "requests": 110,
+      "prefill_duration": 2292.4774708740006,
+      "generation_duration": 5156.045210871031
+    },
     "Qwen3.6-35B-A3B-oQ6-mtp": {
-      "prompt_tokens": 3200573,
-      "completion_tokens": 27694,
-      "cached_tokens": 2920448,
-      "requests": 136,
-      "prefill_duration": 841.6715634212596,
-      "generation_duration": 783.3289773690049
+      "prompt_tokens": 4059435,
+      "completion_tokens": 39349,
+      "cached_tokens": 3741696,
+      "requests": 157,
+      "prefill_duration": 992.8756725050043,
+      "generation_duration": 1145.6070204941789
     }
   }
 }
