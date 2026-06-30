@@ -48,8 +48,8 @@
     "initial_cache_blocks": 256
   },
   "auth": {
-    "api_key": "spacecomx",
-    "secret_key": "63deb7841234d832dbe459d223d831d4cb2023922d1f4cd7990e10cd5886192a",
+    "api_key": "${OMLX_API_KEY}",
+    "secret_key": "${OMLX_SECRET_KEY}",
     "skip_api_key_verification": false,
     "sub_keys": []
   },
