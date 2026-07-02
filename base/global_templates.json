@@ -3,46 +3,82 @@
   "templates": {
     "coding": {
       "name": "coding",
-      "display_name": "coding",
-      "description": null,
+      "display_name": "Coding",
+      "description": "Deterministic code generation and Claude Code sessions. Low temperature, thinking on, 65K context, large tool-result budget.",
       "created_at": "2026-07-02T04:53:07.024758+00:00",
-      "updated_at": "2026-07-02T06:04:54.703076+00:00",
+      "updated_at": "2026-07-02T12:30:00.000000+00:00",
       "settings": {
         "repetition_penalty": 1.05,
-        "chat_template_kwargs": {
-          "reasoning_effort": "medium"
-        },
-        "max_tool_result_tokens": 4096,
+        "chat_template_kwargs": {},
+        "max_tool_result_tokens": 16384,
         "thinking_budget_enabled": false,
         "max_context_window": 65536,
         "thinking_budget_tokens": 8192,
         "top_p": 0.9,
         "temperature": 0.1,
-        "max_tokens": 4096,
+        "max_tokens": 16384,
         "force_sampling": true,
         "enable_thinking": true
       }
     },
+    "agentic": {
+      "name": "agentic",
+      "display_name": "Agentic",
+      "description": "Tool-heavy autonomous runs (file ops, shell, multi-step automation). Thinking off for faster tool loops, 65K context.",
+      "created_at": "2026-07-02T12:30:00.000000+00:00",
+      "updated_at": "2026-07-02T12:30:00.000000+00:00",
+      "settings": {
+        "repetition_penalty": 1.05,
+        "chat_template_kwargs": {},
+        "max_tool_result_tokens": 16384,
+        "thinking_budget_enabled": false,
+        "max_context_window": 65536,
+        "thinking_budget_tokens": 8192,
+        "top_p": 0.9,
+        "temperature": 0.3,
+        "max_tokens": 16384,
+        "force_sampling": true,
+        "enable_thinking": false
+      }
+    },
     "general": {
       "name": "general",
-      "display_name": "general",
-      "description": null,
+      "display_name": "General",
+      "description": "Daily chat, writing, Q&A, summarizing, image understanding. Balanced sampling, thinking on, 32K context.",
       "created_at": "2026-07-02T05:16:09.183386+00:00",
-      "updated_at": "2026-07-02T05:22:33.370245+00:00",
+      "updated_at": "2026-07-02T12:30:00.000000+00:00",
       "settings": {
-        "max_tokens": 4096,
         "repetition_penalty": 1.05,
-        "thinking_budget_tokens": 8192,
-        "max_context_window": 32768,
-        "force_sampling": true,
+        "chat_template_kwargs": {},
+        "max_tool_result_tokens": 16384,
         "thinking_budget_enabled": false,
-        "temperature": 0.7,
-        "max_tool_result_tokens": 0,
+        "max_context_window": 32768,
+        "thinking_budget_tokens": 8192,
         "top_p": 0.95,
-        "chat_template_kwargs": {
-          "reasoning_effort": "medium"
-        },
+        "temperature": 0.7,
+        "max_tokens": 8192,
+        "force_sampling": true,
         "enable_thinking": true
+      }
+    },
+    "quick": {
+      "name": "quick",
+      "display_name": "Quick",
+      "description": "Fast lightweight tasks: one-file edits, boilerplate, code explanations. Thinking off for low latency, 32K context.",
+      "created_at": "2026-07-02T12:30:00.000000+00:00",
+      "updated_at": "2026-07-02T12:30:00.000000+00:00",
+      "settings": {
+        "repetition_penalty": 1.05,
+        "chat_template_kwargs": {},
+        "max_tool_result_tokens": 16384,
+        "thinking_budget_enabled": false,
+        "max_context_window": 32768,
+        "thinking_budget_tokens": 8192,
+        "top_p": 0.9,
+        "temperature": 0.2,
+        "max_tokens": 8192,
+        "force_sampling": true,
+        "enable_thinking": false
       }
     }
   }

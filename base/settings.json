@@ -44,7 +44,7 @@
     "hot_cache_only": false,
     "ssd_cache_dir": "/Volumes/SSDSCX_DATA/workspace/applications/omlx/models/cache",
     "ssd_cache_max_size": "92GB",
-    "hot_cache_max_size": "8GB",
+    "hot_cache_max_size": "12GB",
     "initial_cache_blocks": 512
   },
   "auth": {
