@@ -27,6 +27,30 @@
 4. **Start at rank 1, escalate on failure.** Speed compounds over a session; quality only matters when the fast model actually fails.
 5. Total lineup ≈ 131 GB on disk if you download everything — fine on the 1 TB SSD.
 
+## Post-grad ML / TensorFlow work (offline)
+
+No extra model needed — TensorFlow, Keras, scikit-learn, and pandas are core coder training data. Split the work like this:
+
+| Task | Model | Why |
+|------|-------|-----|
+| Writing/debugging TensorFlow & Keras code, building networks | **Qwopus3.6-35B-A3B-Coder-6bit** (coding) | Daily driver; thinking mode helps with tuning logic |
+| Concepts & theory — "why is my validation loss diverging?", backprop, regularization | **Qwen3.6-35B-A3B-6bit** (general) | Higher temperature + thinking suits explanation |
+| Reading plots — loss curves, confusion matrices, EDA charts | **Qwen3.6-35B-A3B-6bit** | Vision model: paste a chart screenshot, fully offline |
+| Quick cell fixes, boilerplate (train/test split, preprocessing) | **gemma-4-12b** (quick) | Low latency for small asks |
+| Gnarly bugs the daily driver can't crack | **Qwopus3.6-27B-Coder-8bit** | Quality escalation |
+
+### Notebook assignments
+
+- **Claude Code offline**: `omlx claude` from the assignment directory (it prompts for a model, or pass one explicitly). To pin the tiers instead, set `base/settings.json` → `claude_code` to `"mode": "local"` with sonnet → `Qwopus3.6-35B-A3B-Coder-6bit` (daily work), opus → `Qwopus3.6-27B-Coder-8bit` (hard problems), haiku → `gemma-4-12b-coder-fable5-composer2.5-8bit` (lightweight background subtasks). Keep `"mode": "cloud"` with null tiers when using real Claude models online. Claude Code edits `.ipynb` files natively either way.
+- **JupyterLab alternative**: point `jupyter-ai` (or similar) at the OpenAI-compatible endpoint `http://127.0.0.1:8055/v1`.
+
+### Coursework caveats
+
+1. **Always run the generated code.** Local models hallucinate API details (argument names, deprecated Keras calls) more than frontier models. The run-and-fix loop catches it — and is good practice anyway.
+2. **Don't fight your own hardware — and know when to leave it.** Install `tensorflow-metal` so TF trains on the M1 Max GPU. A big local LLM and a training run compete for the same 64 GB of unified memory — during heavy training, use the 12B Gemma for help, or let the 300 s idle timeout unload the big model first.
+   **Local vs Colab rule:** develop, debug, and iterate locally (assignment-scale models train in seconds-to-minutes here, offline, with the LLM at your side); escalate to Colab for genuinely heavy runs — transformer fine-tuning, large CNNs, long hyperparameter sweeps — or when the assignment assumes CUDA (`tensorflow-metal` has op gaps that silently fall back to CPU, and course notebooks are usually tested on Colab). Colab needs internet, so it's the escalation path, not the default. Bonus: running graded notebooks in the graders' environment avoids "works on my machine" surprises.
+3. **Known gap**: local models won't match frontier models on subtle conceptual review (e.g., methodological flaws in experiment design). When online, a frontier-model sanity pass on graded work is worth it; offline, this stack covers everything else.
+
 ## Download commands
 
 ```bash
