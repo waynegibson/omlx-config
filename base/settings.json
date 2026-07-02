@@ -20,14 +20,14 @@
   },
   "model": {
     "model_dirs": [
-      "/Volumes/SSDSCX_DATA/LLM_SSD/models/omlx/models"
+      "/Volumes/SSDSCX_DATA/workspace/applications/omlx/models"
     ],
-    "model_dir": "/Volumes/SSDSCX_DATA/LLM_SSD/models/omlx/models",
+    "model_dir": "/Volumes/SSDSCX_DATA/workspace/applications/omlx/models",
     "model_fallback": false
   },
   "memory": {
     "prefill_memory_guard": true,
-    "memory_guard_tier": "balanced",
+    "memory_guard_tier": "aggressive",
     "memory_guard_custom_ceiling_gb": 0.0,
     "soft_threshold": 0.85,
     "hard_threshold": 0.95,
@@ -35,22 +35,22 @@
     "prefill_min_chunk_tokens": 32
   },
   "scheduler": {
-    "max_concurrent_requests": 12,
+    "max_concurrent_requests": 4,
     "embedding_batch_size": 32,
     "chunked_prefill": true
   },
   "cache": {
     "enabled": true,
     "hot_cache_only": false,
-    "ssd_cache_dir": "/Volumes/SSDSCX_DATA/LLM_SSD/models/omlx/cache",
+    "ssd_cache_dir": "/Volumes/SSDSCX_DATA/workspace/applications/omlx/models/cache",
     "ssd_cache_max_size": "92GB",
-    "hot_cache_max_size": "12GB",
-    "initial_cache_blocks": 256
+    "hot_cache_max_size": "8GB",
+    "initial_cache_blocks": 512
   },
   "auth": {
-    "api_key": "${OMLX_API_KEY}",
-    "secret_key": "${OMLX_SECRET_KEY}",
-    "skip_api_key_verification": true,
+    "api_key": "spacecomx",
+    "secret_key": "0204c8a9263733feb2313f2fad0c38e5c33798d6aa3bc02dbeb0f59fc15a5d56",
+    "skip_api_key_verification": false,
     "sub_keys": []
   },
   "mcp": {
@@ -79,7 +79,7 @@
     "repetition_penalty": 1.0
   },
   "logging": {
-    "log_dir": "/Volumes/SSDSCX_DATA/LLM_SSD/models/omlx/base/logs",
+    "log_dir": "/Volumes/SSDSCX_DATA/workspace/applications/omlx/models/logs",
     "retention_days": 7
   },
   "claude_code": {
@@ -108,6 +108,6 @@
     "language": "en"
   },
   "idle_timeout": {
-    "idle_timeout_seconds": null
+    "idle_timeout_seconds": 300
   }
 }

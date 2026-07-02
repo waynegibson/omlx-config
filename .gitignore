@@ -6,7 +6,10 @@
 .claude/
 
 # oMLX
+/base/cache
 /base/logs
 /base/stats.json
 /models
-/cache
+
+# Custom files
+.tmp
