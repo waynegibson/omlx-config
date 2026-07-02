@@ -48,9 +48,9 @@
     "initial_cache_blocks": 512
   },
   "auth": {
-    "api_key": "spacecomx",
-    "secret_key": "0204c8a9263733feb2313f2fad0c38e5c33798d6aa3bc02dbeb0f59fc15a5d56",
-    "skip_api_key_verification": false,
+    "api_key": "",
+    "secret_key": "9434b9f3e411044a8a6d8800a54b7d7b686cf43119e428543514e3af56c7f004",
+    "skip_api_key_verification": true,
     "sub_keys": []
   },
   "mcp": {

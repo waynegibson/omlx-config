@@ -10,7 +10,7 @@
       "force_sampling": true,
       "max_tool_result_tokens": 4096,
       "chat_template_kwargs": {
-        "reasoning_effort": "high"
+        "reasoning_effort": "medium"
       },
       "enable_thinking": true,
       "thinking_budget_enabled": false,
