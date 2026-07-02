@@ -6,7 +6,7 @@
 
 | Rank | Model | Size | Speed feel | When to use it | Notes |
 |------|-------|------|------------|----------------|-------|
-| 1 | **Qwopus3.6-35B-A3B-Coder-6bit** | 29.1 GB | ★★★★★ (MoE, ~3B active) | **Daily driver.** Claude Code sessions, refactors, everyday coding. Start here for everything. | MTP head ✓ — use MTP + D-Flash, TurboQuant off |
+| 1 | **Qwopus3.6-35B-A3B-Coder-6bit** | 29.1 GB | ★★★★★ (MoE, ~3B active) | **Daily driver.** Claude Code sessions, refactors, everyday coding. Start here for everything. | MTP head ✓ — use MTP only, TurboQuant off |
 | 2 | **Qwopus3.6-27B-Coder-8bit** *(installed)* | 27 GB | ★★☆☆☆ (dense) | **Hard problems only.** When #1 gets stuck or produces sloppy logic — tricky algorithms, subtle bugs, architecture decisions. Quality ceiling of the lineup. | MTP head ✓ — already configured |
 | 3 | **Qwen-AgentWorld-35B-A3B-oQ4** | 20.4 GB | ★★★★★ (MoE) | **Tool-heavy agent runs.** Long autonomous sessions where tool-call reliability matters more than code elegance (file ops, shell work, multi-step automation). | MTP head ✓ · text-only |
 | 4 | **gemma-4-12b-coder-fable5-composer2.5-8bit** | 12.7 GB | ★★★★☆ (small dense) | **Quick hits.** One-file edits, boilerplate, explaining code, or when you want RAM free for other apps. | **No MTP** — configure with TurboQuant instead |
@@ -23,7 +23,7 @@
 
 1. **MoE beats dense for speed** on Apple Silicon: only active parameters are read per token. Dense 27-31B models will always feel slow here regardless of quantization.
 2. **One model hot at a time.** Two ~27 GB models resident together ≈ 54 GB — right at the memory ceiling. The 300 s idle timeout unloads the inactive one; don't pin multiple large models.
-3. **MTP models** (Qwen3.6/Qwopus family): `mtp_enabled: true`, `turboquant_kv_enabled: false`. **Non-MTP models** (Gemma family): the reverse. They're mutually exclusive in omlx.
+3. **One speculative path per model** — omlx rejects the whole settings entry otherwise (check `server.log` for "Failed to load settings"). Qwen3.6/Qwopus family: `mtp_enabled: true` only (no D-Flash, no TurboQuant, no vlm_mtp). Gemma family (no MTP head): `turboquant_kv_enabled: true` only.
 4. **Start at rank 1, escalate on failure.** Speed compounds over a session; quality only matters when the fast model actually fails.
 5. Total lineup ≈ 131 GB on disk if you download everything — fine on the 1 TB SSD.
 
